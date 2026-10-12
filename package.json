@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package",
   "name": "mon-ecommerce-frontend",
   "private": true,
   "version": "1.0.0",

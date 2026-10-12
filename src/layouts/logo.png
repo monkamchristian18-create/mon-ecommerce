@@ -1,0 +1,3 @@
+import orangeLogo from '../assets/orange-money-logo.png';
+
+<img src={orangeLogo} alt="Orange Money" className="h-6 inline ml-2" />
