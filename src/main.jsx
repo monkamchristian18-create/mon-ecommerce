@@ -1,19 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import "./types/index.css";
 
-function App() {
-  return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-blue-600">
-        Mon E-commerce
-      </h1>
-    </div>
-  );
+const rootElement = document.getElementById("root");
+
+if (rootElement === null) {
+  throw new Error("Root element not found. Check your index.html file.");
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+createRoot(rootElement).render(
+  <StrictMode>
     <App />
-  </React.StrictMode>
+  </StrictMode>
 );

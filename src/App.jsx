@@ -1,7 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Layout from './components/layout/Layout';
 import AdminLayout from './layouts/AdminLayout';
+import { Toaster } from 'react-hot-toast';
 
 import Home from './pages/Home';
 import Products from './pages/Products';
@@ -19,70 +20,73 @@ import AdminOrders from './pages/admin/AdminOrders';
 
 export default function App() {
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
+    <BrowserRouter>
+      <Toaster position="top-right" />
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+
+          <Route
+            path="/products"
+            element={<Products />}
+          />
+
+          <Route
+            path="/categories"
+            element={<Categories />}
+          />
+
+          <Route
+            path="/cart"
+            element={<Cart />}
+          />
+
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+
+          <Route
+            path="/register"
+            element={<Register />}
+          />
+
+          <Route
+            path="/profile"
+            element={<Profile />}
+          />
+
+          <Route
+            path="/checkout"
+            element={<Checkout />}
+          />
+
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
+        </Route>
 
         <Route
-          path="/products"
-          element={<Products />}
-        />
+          path="/admin"
+          element={<AdminLayout />}
+        >
+          <Route
+            index
+            element={<AdminDashboard />}
+          />
 
-        <Route
-          path="/categories"
-          element={<Categories />}
-        />
+          <Route
+            path="products"
+            element={<AdminProducts />}
+          />
 
-        <Route
-          path="/cart"
-          element={<Cart />}
-        />
-
-        <Route
-          path="/login"
-          element={<Login />}
-        />
-
-        <Route
-          path="/register"
-          element={<Register />}
-        />
-
-        <Route
-          path="/profile"
-          element={<Profile />}
-        />
-
-        <Route
-          path="/checkout"
-          element={<Checkout />}
-        />
-
-        <Route
-          path="*"
-          element={<NotFound />}
-        />
-      </Route>
-
-      <Route
-        path="/admin"
-        element={<AdminLayout />}
-      >
-        <Route
-          index
-          element={<AdminDashboard />}
-        />
-
-        <Route
-          path="products"
-          element={<AdminProducts />}
-        />
-
-        <Route
-          path="orders"
-          element={<AdminOrders />}
-        />
-      </Route>
-    </Routes>
+          <Route
+            path="orders"
+            element={<AdminOrders />}
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
